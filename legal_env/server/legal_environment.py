@@ -22,8 +22,11 @@ class LegalEnvironment:
     ADVANCE_THRESHOLD: float = 0.85
 
     def __init__(self) -> None:
-        self._state = LegalEnvironmentState(episode_id=str(uuid.uuid4()))
         self._tasks = list(ALL_TASKS)
+        self._state = LegalEnvironmentState(
+            episode_id=str(uuid.uuid4()),
+            task_scores={t["task_id"]: 0.01 for t in self._tasks}
+        )
         self._task_responses: list[str] = []
 
     def reset(
@@ -37,7 +40,7 @@ class LegalEnvironment:
             step_count=0,
             current_task_index=0,
             total_steps=0,
-            task_scores={},
+            task_scores={t["task_id"]: 0.01 for t in self._tasks},
             task_feedbacks={},
             done=False,
             history=[],
@@ -45,6 +48,10 @@ class LegalEnvironment:
         )
         self._task_responses = []
         return self._make_observation(done=False, reward=0.0)
+
+    @property
+    def tasks(self):
+        return self._tasks
 
     def step(
         self,
