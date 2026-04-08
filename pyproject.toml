@@ -19,3 +19,6 @@ dependencies = [
 
 [project.entry-points."openenv.environments"]
 legal_env = "legal_env.server.legal_environment:LegalEnvironment"
+
+[project.scripts]
+server = "server.app:main"
