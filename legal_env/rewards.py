@@ -81,7 +81,7 @@ def compute_reward(
 
     # ── Assemble total ──────────────────────────────────────────────────────
     raw_total = base + length_pen + repetition_pen + step_bonus
-    total = max(0.0, min(1.0, raw_total))
+    total = max(0.01, min(0.99, raw_total))
 
     detail_parts = [feedback]
     if length_pen < 0:

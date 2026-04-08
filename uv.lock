@@ -352,6 +352,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "pytest" },
     { name = "pyyaml" },
+    { name = "requests" },
     { name = "uvicorn" },
 ]
 
@@ -364,6 +365,7 @@ requires-dist = [
     { name = "pydantic", specifier = "==2.10.6" },
     { name = "pytest", specifier = "==8.3.4" },
     { name = "pyyaml", specifier = "==6.0.2" },
+    { name = "requests" },
     { name = "uvicorn", specifier = "==0.34.0" },
 ]
 
