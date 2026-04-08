@@ -28,9 +28,9 @@ from legal_env.server.legal_environment import LegalEnvironment
 
 
 # ── Config from environment ──────────────────────────────────────────────────
-API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY")
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME   = os.getenv("MODEL_NAME", "meta-llama/Meta-Llama-3-8B-Instruct")
+HF_TOKEN     = os.getenv("HF_TOKEN")
 
 
 # ── Mandatory log helpers ────────────────────────────────────────────────────
@@ -89,11 +89,11 @@ def get_llm_response(client: OpenAI, prompt: str, feedback: Optional[str]) -> st
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
-    if not API_KEY:
+    if not HF_TOKEN:
         print("ERROR: Set HF_TOKEN environment variable.", flush=True)
         sys.exit(1)
 
-    client = OpenAI(base_url=API_BASE_URL, api_key=API_KEY)
+    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
     env    = LegalEnvironment()
 
     all_rewards:    List[float] = []
