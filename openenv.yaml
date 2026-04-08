@@ -1,0 +1,12 @@
+spec_version: 1
+name: legal_case_assistant
+type: space
+runtime: fastapi
+app: legal_env.server.app:app
+port: 8000
+description: >
+  AI Legal Case Assistant + Contract Clause Optimizer.
+  Evaluates structured legal reasoning across three tasks:
+  legal issue classification, contract risk detection,
+  and clause optimization.
+entry_point: legal_env.server.legal_environment:LegalEnvironment

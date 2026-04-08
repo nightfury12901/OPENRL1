@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "legal-env"
+version = "0.1.0"
+description = "Legal environment"
+dependencies = [
+    "pydantic==2.10.6",
+    "fastapi==0.115.8",
+    "uvicorn==0.34.0",
+    "openai==1.68.2",
+    "pyyaml==6.0.2",
+    "httpx==0.28.1",
+    "pytest==8.3.4",
+    "openenv-core"
+]
+
+[project.entry-points."openenv.environments"]
+legal_env = "legal_env.server.legal_environment:LegalEnvironment"

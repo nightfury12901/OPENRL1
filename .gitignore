@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.venv/
+venv/
+results.json
+fields.json
+inspect_models.py
+inspect2.py
+inspect_output.txt
+test_output.txt
